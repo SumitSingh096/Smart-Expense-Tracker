@@ -36,7 +36,77 @@
   <h1>Expense Overview</h1>
 
   <div class="container3">
-    
+    <div class="bar-chart">
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  const data = JSON.parse(localStorage.getItem("transaction")) || [];
+  let income = 0;
+  let expense = 0;
+
+  data.forEach(item => {
+    if (item.type === "Income") {
+      income += item.amount;
+    } else {
+      expense += item.amount;
+    }
+  });
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Income', 'Expense',],
+      datasets: [{
+        label:[ 'Amount'],
+        data: [income, expense],
+        borderWidth: 2,
+        backgroundColor: ["green", "red"],
+        borderColor: ["green", "red"],
+        categoryPercentage:0.4,
+        barPercentage:0.9,
+        // barThickness:90,
+      }]
+    },
+   options: {
+  responsive: true,
+  maintainAspectRatio: false,
+
+  plugins: {
+    legend: {
+      labels: {
+        color: "white" // legend text color (Amount)
+      }
+    }
+  },
+
+  scales: {
+    x: {
+      ticks: {
+        color: "white" // Income / Expense text
+      },
+      grid: {
+        color: "rgba(255,255,255,0.2)" ,// vertical grid lines
+        drawBorder:false,
+      }
+    },
+    y: {
+      ticks: {
+        color: "white" // numbers on left (1000, 2000...)
+      },
+      grid: {
+        color: "rgba(255,255,255,0.2)" ,// horizontal grid lines
+        drawBorder:false,
+      }
+    }
+  }
+}
+  });
+</script>
   </div>
 
  <script src="script3.js"></script>   
