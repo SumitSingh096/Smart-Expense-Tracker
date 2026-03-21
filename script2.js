@@ -10,22 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".navbar").classList.remove("navbar-in");
   });
 
-  const applyFilterBtn = document.querySelector("#apply-filter")
+  const applyFilterBtn = document.querySelector("#apply-filter");
 
   //edit model
   const newDate = document.querySelector("#edit-date");
   const newCategory = document.querySelector("#edit-category");
   const newAmount = document.querySelector("#edit-amount");
   const editDescription = document.querySelector("#edit-description");
-  const newType = document.querySelector('input[name="type"]:checked');
 
   const tBody = document.querySelector("#Transaction-body");
 
   let currentIndex = null;
 
-  function loadData() {
+  function loadData(data) {
     tBody.innerHTML = "";
-    const data = JSON.parse(localStorage.getItem("transaction")) || [];
 
     data.forEach((item, index) => {
       let newTr = document.createElement("tr");
@@ -41,7 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  loadData();
+  function getAllData (){
+    return JSON.parse(localStorage.getItem("transaction")) || [];
+  }
+
+  loadData(getAllData());
 
   document.addEventListener("click", (e) => {
     const data = JSON.parse(localStorage.getItem("transaction")) || [];
@@ -66,8 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       data.splice(index, 1);
 
       localStorage.setItem("transaction", JSON.stringify(data));
-      loadData();
-      location.reload();
+      loadData(data);
     }
   });
 
@@ -100,15 +101,25 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".edit-transaction").classList.add("display-none");
 
     localStorage.setItem("transaction", JSON.stringify(data));
-    loadData();
+    loadData(data);
   });
-  
-  applyFilterBtn.addEventListener("click", ()=>{
-    const filterCategory = document.querySelector("#filter-by-category")
-    const filterDate = document.querySelector("#filter-by-date")
-    const filterType = document.querySelector("#filter-by-type")
-    const filterAmount = document.querySelector("#filter-by-amount")
-    
-  })
 
+  applyFilterBtn.addEventListener("click", () => {
+    const filterCategory = document.querySelector("#filter-by-category").value;
+    const filterDate = document.querySelector("#filter-by-date").value;
+    const filterType = document.querySelector("#filter-by-type").value;
+    const filterAmount = document.querySelector("#filter-by-amount").value;
+
+    const data = getAllData();
+
+    const filterData = data.filter(item => {
+      return (
+        (filterCategory === "" || item.category === filterCategory) &&
+        (filterDate === "" || item.date === filterDate) &&
+        (filterType === "" || item.type === filterType) &&
+        (filterAmount === "" || item.amount === Number(filterAmount))
+      );
+    });
+    loadData(filterData)
+  });
 });
