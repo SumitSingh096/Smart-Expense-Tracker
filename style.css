@@ -8,12 +8,14 @@ body {
   position: relative;
   background-color: var(--color);
 }
-html, body {
+html,
+body {
   overflow: auto;
   scrollbar-width: none;
 }
 
-body::-webkit-scrollbar, html::-webkit-scrollbar{
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
   display: none;
 }
 
@@ -39,6 +41,21 @@ header h1 {
 header i {
   font-size: 2rem;
 }
+@media (max-width: 558px) {
+  #header-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 646px) {
+  .transaction-amount ,.category-box, .date-box {
+    flex-wrap: wrap;
+  }
+  #date {
+  width: 100%!important;
+ }
+
+}
 
 /* footer */
 
@@ -48,9 +65,13 @@ header i {
   margin-left: 3rem;
   margin-right: 3rem;
   gap: 15px;
+  flex-wrap: wrap;
 }
 .Total {
-  display: inline-block;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-direction: column;
   align-items: center;
   background-color: var(--color2);
   padding: 3.5rem 7.7rem;
@@ -75,6 +96,7 @@ header i {
   flex-direction: column;
   padding: 2rem;
   margin: 2rem 3rem 0 3rem;
+  min-width: 426px;
   border-radius: 1rem;
 }
 .transaction-amount {
@@ -221,8 +243,8 @@ a {
   font-size: 2rem;
   color: aliceblue;
 }
-.fa-xmark{
-  color:aliceblue;
+.fa-xmark {
+  color: aliceblue;
 }
 ul {
   display: flex;

@@ -35,3 +35,35 @@ h1 {
   width: 100%;
   height: 100%;
 }
+@media (max-width: 1400px){
+  .container3{
+    flex-wrap: wrap;
+  }
+  .bar-chart{
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+}
+
+@media (max-width: 724px){
+  .container3{
+    flex-wrap: wrap;
+  }
+  .bar-chart{
+    flex-shrink: 1;
+  }
+  .container3 canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  scale: auto;
+}
+
+}
+
+@media (max-width: 558px) {
+  #header-text {
+    font-size: 1.2rem;
+  }
+}

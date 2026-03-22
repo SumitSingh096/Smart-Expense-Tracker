@@ -1,12 +1,56 @@
-html, body {
+html,
+body {
   position: relative;
   overflow: auto;
   scrollbar-width: none;
 }
 
-body::-webkit-scrollbar, html::-webkit-scrollbar{
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
   display: none;
 }
+
+@media (max-width: 822px) {
+  .arrange {
+    display: flex;
+    flex-direction: column;
+
+    flex-wrap: wrap;
+  }
+  .filter-category,.filter-date,.filter-type {
+    flex-shrink: 1;
+    flex-grow: 1;
+    margin-top: 2.5rem!important;
+  }
+  .amount3{
+    width:100%!important;
+  }
+  .search{
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 558px) {
+  #header-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 1435px){
+td:last-child{
+  position: relative!important;
+  padding-left: 7rem;
+}
+}
+
+tr td:last-child{
+  display: flex;
+}
+
+.table-wrapper{
+  overflow-x: auto;
+}
+
 .arrange {
   display: flex;
   justify-content: space-between;
@@ -70,7 +114,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar{
   margin-top: 0.5rem;
 }
 
-#amount-margin{
+#amount-margin {
   margin-top: 0.5rem;
 }
 
