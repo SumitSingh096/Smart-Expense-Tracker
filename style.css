@@ -7,7 +7,20 @@
 body {
   position: relative;
   background-color: var(--color);
+  color: aliceblue;
 }
+
+body input[type="date"]::-webkit-calendar-picker-indicator{
+  filter:invert(1)
+}
+body input{
+  color:aliceblue
+}
+body input::placeholder{
+  color: aliceblue;
+  opacity: 0.7;
+}
+
 html,
 body {
   overflow: auto;
@@ -119,7 +132,7 @@ header i {
 #date,
 .category,
 .date-box input {
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
   height: 3rem;
@@ -165,7 +178,7 @@ header i {
   width: 18px;
   height: 18px;
   scale: 1.8;
-  border: 2px solid gray;
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -255,4 +268,12 @@ ul {
 
 i:hover {
   cursor: pointer;
+}
+body select{
+  color: aliceblue;
+  background-color: transparent;
+}
+body select option{
+
+  color:black;
 }

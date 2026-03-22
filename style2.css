@@ -83,7 +83,7 @@ tr td:last-child{
   width: 100%;
 }
 .amount4 {
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
   height: 3rem;
@@ -132,6 +132,9 @@ tr td:last-child{
 .remove:hover,
 .edit:hover {
   scale: 1.03;
+}
+.edit{
+  background-color: var(--color2);
 }
 
 #apply-filter:active,
