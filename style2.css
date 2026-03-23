@@ -134,7 +134,7 @@ tr td:last-child{
   scale: 1.03;
 }
 .edit{
-  background-color: var(--color2);
+  background-color: var(--color3);
 }
 
 #apply-filter:active,
@@ -268,7 +268,7 @@ td:last-child {
   box-shadow: inset 0px 1px 8px 0px black;
 }
 #cancel {
-  background-color: var(--color2);
+  background-color: var(--color3);
 }
 .front {
   display: flex;
